@@ -110,14 +110,13 @@ Define a function `num_min` with one argument `nums` (a sequence of numbers) whi
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "p02-sortable",
     "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
     "can_indent": true,
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
-    "trashId": "p02-sortableTrash",
-    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(num_min([1, 3, 1]),2,\"Testing: [1, 3, 1]\")\n  def test_1(self):\n    self.assertEqual(num_min((1, 2)),1,\"Testing: (1, 2)\")\n  def test_2(self):\n    self.assertEqual(num_min([]),0,\"Testing: []\")\n_test_result = myTests().main()"
+    "trashId": "p02-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
