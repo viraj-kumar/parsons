@@ -53,7 +53,22 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
   }); 
   $("#p01-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      parsonsPuzzle.getFeedback(); 
+      mygetFeedback(parsonsPuzzle); 
   }); 
 })();
+    
+function mygetFeedback(parsonsPuzzle) {
+    if (parsonsPuzzle) {
+      var feedback = parsonsPuzzle.getFeedback();
+
+      var message = feedback.html || feedback.feedback;
+      if (!message && feedback.length) {
+        message = feedback.join('\n')
+      }
+      message = message && !feedback.success ? message : 'Congratulations on solving your Parsons Problem!';
+
+      var feedbackContainer = document.getElementById('feedback');
+      feedbackContainer.innerHTML = message;
+    }
+  }
 </script>
