@@ -24,7 +24,8 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
 <p> 
     <input id="p01-feedbackLink" value="Get Feedback" type="button" /> 
     <input id="p01-newInstanceLink" value="Reset Problem" type="button" /> 
-</p> 
+</p>
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="feedback"/></fieldset>
 <script type="text/javascript"> 
 (function(){
   var initial = "n = int(input())\n" +
@@ -55,22 +56,4 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
       parsonsPuzzle.getFeedback(); 
   }); 
 })();
-
-function getFeedback() {
-    if (parsonsPuzzle) {
-      var feedback = parsonsPuzzle.getFeedback();
-
-      var message = feedback.html || feedback.feedback;
-      if (!message && feedback.length) {
-        message = feedback.join('\n')
-      }
-      message = message && !feedback.success ? message : 'Congratulations on solving your Parsons Problem!';
-
-      var feedbackContainer = document.getElementById('feedback');
-      feedbackContainer.innerHTML = message;
-    }
-  }
-
 </script>
-
-<a class="btn btn--primary" onclick="getFeedback()">Check Solution</a>
