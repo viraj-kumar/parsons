@@ -1,20 +1,3 @@
----
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: default
-title: Parson's Problems for practice
----
-## Problem 1: Right-angled triangle
-Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
-
-*Example*: If `n = 4`, the program should print:
-```
-*
-**
-***
-****
-```
 <script>
 function mygetFeedback(parsonsPuzzle, feedback_id) {
     if (parsonsPuzzle) {
@@ -32,6 +15,23 @@ function mygetFeedback(parsonsPuzzle, feedback_id) {
   }
 </script>
 
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+title: Parson's Problems for practice
+---
+## Problem 1: Right-angled triangle
+Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
+
+*Example*: If `n = 4`, the program should print:
+```
+*
+**
+***
+****
+```
 <div id="p01-sortableTrash" class="sortable-code"></div> 
 <div id="p01-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
