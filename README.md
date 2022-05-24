@@ -1,7 +1,7 @@
 # Hosting Parsons on Github Template
 This repo is a template to help you quickly and easily host Parson's problems on GitHub.
 
-You can use [Codio's graphical Parson's problems generator](https://codio.github.io/parsons-puzzle-ui/dist/) to create the Parson's problems and paste them into this template. [Visit the other repo's main page for help on using the generator.](https://codio.github.io/parsons-puzzle-ui/)
+I recommend using [this Parson's problem generator](https://viraj-cse.github.io/parsons-puzzle-ui/dist/), which is a slightly modified version of [Codio's generator](https://codio.github.io/parsons-puzzle-ui/dist/). The key change is the **addition of a feedback box**. After creating the Parson's problems, paste them into this template. [Visit the Codio repo's main page for help on using the generator.](https://codio.github.io/parsons-puzzle-ui/)
 
 ## How to host your own Parson's Problems
 
@@ -9,36 +9,20 @@ You can use [Codio's graphical Parson's problems generator](https://codio.github
 
 1. Fork this repo using the "Fork" button 
 
-    ![Fork Button](https://sammyk.s3.amazonaws.com/blog/images/2014-05-28/fork.png)
-    
-1. In **your fork** (it should have your user name after the `github.com/` in the URL bar) click on "Settings":
+1. In **your fork** click on "Settings" and then "Pages"
 
-    ![Settings Tab](https://pages.github.com/images/repo-settings@2x.png)
-    
-1. Set the GitHub Pages Source to Master branch using the drop down:
-
-    ![Set GitHub Pages Source](https://pages.github.com/images/source-setting@2x.png)
-    
-### Test your repo
-
-1. To check that your repo is now setup correctly, return to the "Code" tab on the far left (you can get there by clicking on the repo name at the top too). 
-
-1. Click on the environment button with the rocketship icon on the right-side of the page
-
-    ![Click github-pages link on the right-side of the page](https://raw.githubusercontent.com/codio-content/hosting-parsons-on-github-template/master/Environments.png)
-
-1. Click on the "View Deployment" button - the one at the top is the most recent.
-
-    ![Click on the "View Deployment" button](https://raw.githubusercontent.com/codio-content/hosting-parsons-on-github-template/master/Deployments.png)
+1. Set the GitHub Pages Source to Master branch and `/(root)` using the drop down, then click "Save"
     
 ## How to Add Generated Parson's Problems
 
-1. Use [Codio's graphical Parson's problems generator](https://codio.github.io/parsons-puzzle-ui/dist/) to create a Parson's problem
+1. Use [this Parson's problem generator](https://viraj-cse.github.io/parsons-puzzle-ui/dist/) to create a Parsons problem
 
-1. Click EXPORT in the top left
+1. Click "Export" in the top left
 
-1. Click Switch to Code
+1. Enter a prefix (e.g., `p01`) and click "Update Prefix"
 
-1. (optional) If you are hosting multiple parsons problems on the same page (in the same markdown) then add a unique pre-fix in the textbox at the top and press enter.
+1. (If necessary) Click "Switch to Code"
 
-1. Copy the code into index.markdown
+1. Copy the code into `index.markdown`
+
+*Note*: Do **not** delete the `giveFeedback()` function that has been added to `index.markdown`!
