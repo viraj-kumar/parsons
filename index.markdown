@@ -72,6 +72,19 @@ function mygetFeedback(parsonsPuzzle, feedback_id) {
 })();
 </script>
 
+
+## Problem 2: Number of times minimum appears
+Define a function `num_min` that takes one argument `nums` (a sequence of numbers) and returns the number of times the minimum value appears in `nums`.
+
+*Examples*:
+```
+>>> num_min([1, 3, 1])
+2
+>>> num_min((1, 2))
+1
+>>> num_min([])
+0
+```
 <div id="p02-sortableTrash" class="sortable-code"></div> 
 <div id="p02-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
