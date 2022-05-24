@@ -74,7 +74,7 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
 
 
 ## Problem 2: Number of times minimum appears
-Define a function `num_min` that takes one argument `nums` (a sequence of numbers) and returns the number of times the minimum value appears in `nums`.
+Define a function `num_min` with one argument `nums` (a sequence of numbers) and returns the number of times the minimum value appears in `nums`.
 
 *Examples*:
 ```
@@ -91,35 +91,33 @@ Define a function `num_min` that takes one argument `nums` (a sequence of number
 <p> 
     <input id="p02-feedbackLink" value="Get Feedback" type="button" /> 
     <input id="p02-newInstanceLink" value="Reset Problem" type="button" /> 
-</p>
-<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset>
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset> 
 <script type="text/javascript"> 
 (function(){
   var initial = "def num_min(nums):\n" +
-    "    answer = 0\n" +
-    "    min_so_far = None\n" +
+    "    answer = 0\nmin_so_far = None\n" +
     "    for num in nums:\n" +
     "        if min_so_far == None or num &lt; min_so_far:\n" +
-    "            answer = 1\n" +
-    "            min_so_far = num\n" +
+    "            answer = 1\nmin_so_far = num\n" +
     "        elif num == min_so_far:\n" +
     "            answer += 1\n" +
     "    return answer\n" +
     "min_so_far = 0 #distractor\n" +
     "min_so_far = -1 #distractor\n" +
     "if num &lt; min_so_far: #distractor\n" +
-    "if num &lt; min_so_far or min_so_far == None: #distractor\n" +
     "else: #distractor";
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "p02-sortable",
     "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "grader": ParsonsWidget._graders.UnitTestGrader,
     "exec_limit": 2500,
     "can_indent": true,
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
-    "trashId": "p02-sortableTrash"
+    "trashId": "p02-sortableTrash",
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(sum_natural(['a', 1.2, -1]),0,\"Testing: ['a', 1.2, -1]\")\n  def test_1(self):\n    self.assertEqual(sum_natural(['a', 1.2, 1]),1,\"Testing: ['a', 1.2, 1]\")\n  def test_2(self):\n    self.assertEqual(sum_natural(['a', 12, -1]),12,\"Testing: ['a', 12, -1]\")\n  def test_3(self):\n    self.assertEqual(sum_natural([0, 1.2, -1]),0,\"Testing: [0, 1.2, -1]\")\n_test_result = myTests().main()"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
@@ -129,13 +127,13 @@ Define a function `num_min` that takes one argument `nums` (a sequence of number
   }); 
   $("#p02-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      giveFeedback(parsonsPuzzle, 'p02-feedback');
+      giveFeedback(parsonsPuzzle, "p02-feedback"); 
   }); 
 })(); 
 </script>
 
 ## Problem 3: Alternating odd-even numbers
-Define a function `odd_even` that returns `True` if the integers in the sequence `nums` alternates in the pattern: odd, even, odd, even, ...
+Define a function `odd_even` that returns `True` if the integers in the sequence `nums` alternate in the pattern: odd, even, odd, even, etc.
 
 *Examples*:
 ```
@@ -194,7 +192,7 @@ True
 </script>
 
 ## Problem 4: Sum of natural numbers
-Define a function `sum_natural` that returns the sum of all non-negative integers in a sequence `items` that may contain integers as well as non-integers.
+Define a function `sum_natural` that returns the sum of all natural numbers (non-negative integers) in a sequence `items`. Note that `items` may contain integers as well as non-integers.
 
 *Examples*:
 ```
