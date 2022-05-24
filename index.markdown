@@ -7,8 +7,16 @@ title: Multiple Parson's Problems on One Page
 ---
 # Parsons Practice
 
-## Parsons 1 (Line Based Grader)
-Re-arrange the blocks below so they print out "Hello World!"
+## Parsons 1: Right-angled triangle
+Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
+
+*Example*: If `n = 4`, the program should print:
+```
+*
+**
+***
+****
+```
 
 <div id="p01-sortableTrash" class="sortable-code"></div> 
 <div id="p01-sortable" class="sortable-code"></div> 
@@ -46,5 +54,23 @@ Re-arrange the blocks below so they print out "Hello World!"
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
   }); 
-})(); 
+})();
+
+function getFeedback() {
+    if (parsonsPuzzle) {
+      var feedback = parsonsPuzzle.getFeedback();
+
+      var message = feedback.html || feedback.feedback;
+      if (!message && feedback.length) {
+        message = feedback.join('\n')
+      }
+      message = message && !feedback.success ? message : 'Congratulations on solving your Parsons Problem!';
+
+      var feedbackContainer = document.getElementById('feedback');
+      feedbackContainer.innerHTML = message;
+    }
+  }
+
 </script>
+
+<a class="btn btn--primary" onclick="getFeedback()">Check Solution</a>
