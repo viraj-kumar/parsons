@@ -72,9 +72,8 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
 })();
 </script>
 
-
 ## Problem 2: Number of times minimum appears
-Define a function `num_min` with one argument `nums` (a sequence of numbers) and returns the number of times the minimum value appears in `nums`.
+Define a function `num_min` with one argument `nums` (a sequence of numbers) which returns the *frequency* of the minimum value in `nums`.
 
 *Examples*:
 ```
@@ -118,7 +117,7 @@ Define a function `num_min` with one argument `nums` (a sequence of numbers) and
     "lang": "en",
     "show_feedback": true,
     "trashId": "p02-sortableTrash",
-    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(sum_natural(['a', 1.2, -1]),0,\"Testing: ['a', 1.2, -1]\")\n  def test_1(self):\n    self.assertEqual(sum_natural(['a', 1.2, 1]),1,\"Testing: ['a', 1.2, 1]\")\n  def test_2(self):\n    self.assertEqual(sum_natural(['a', 12, -1]),12,\"Testing: ['a', 12, -1]\")\n  def test_3(self):\n    self.assertEqual(sum_natural([0, 1.2, -1]),0,\"Testing: [0, 1.2, -1]\")\n_test_result = myTests().main()"
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(num_min([1, 3, 1]),2,\"Testing: [1, 3, 1]\")\n  def test_1(self):\n    self.assertEqual(num_min((1, 2)),1,\"Testing: (1, 2)\")\n  def test_2(self):\n    self.assertEqual(num_min([]),0,\"Testing: []\")\n_test_result = myTests().main()"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
@@ -140,7 +139,7 @@ Define a function `odd_even` that returns `True` if the integers in the sequence
 ```
 >>> odd_even([1, 3, 1])
 False
->>> odd_even((1, 2))
+>>> odd_even((1, 2, 3))
 True
 >>> odd_even([])
 True
@@ -177,7 +176,7 @@ True
     "lang": "en",
     "show_feedback": true,
     "trashId": "p03-sortableTrash",
-    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(odd_even([1, 3, 1]),False,'Testing: [1, 3, 1]')\n  def test_1(self):\n    self.assertEqual(odd_even((1, 2)),True,'Testing: (1, 2)')\n  def test_2(self):\n    self.assertEqual(odd_even([]),True,'Testing: []')\n_test_result = myTests().main()"
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(odd_even([1, 3, 1]),False,'Testing: [1, 3, 1]')\n  def test_1(self):\n    self.assertEqual(odd_even((1, 2, 3)),True,'Testing: (1, 2, 3)')\n  def test_2(self):\n    self.assertEqual(odd_even([]),True,'Testing: []')\n_test_result = myTests().main()"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
