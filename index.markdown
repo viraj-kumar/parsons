@@ -3,10 +3,8 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default
-title: Multiple Parson's Problems on One Page
+title: Parson's Problems for practice
 ---
-# Parsons Practice
-
 ## Problem 1: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
 
@@ -72,4 +70,54 @@ function mygetFeedback(parsonsPuzzle, feedback_id) {
       mygetFeedback(parsonsPuzzle, 'p01-feedback'); 
   }); 
 })();
+</script>
+
+<div id="p02-sortableTrash" class="sortable-code"></div> 
+<div id="p02-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p02-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p02-newInstanceLink" value="Reset Problem" type="button" /> 
+</p>
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset>
+<script type="text/javascript"> 
+(function(){
+  var initial = "def num_min(nums):\n" +
+    "    answer = 0\n" +
+    "    min_so_far = None\n" +
+    "    for num in nums:\n" +
+    "        if min_so_far == None or num &lt; min_so_far:\n" +
+    "            answer = 1\n" +
+    "            min_so_far = num\n" +
+    "        elif num == min_so_far:\n" +
+    "            answer += 1\n" +
+    "    return answer\n" +
+    "min_so_far = 0 #distractor\n" +
+    "min_so_far = -1 #distractor\n" +
+    "answer = 0 #distractor\n" +
+    "if num &lt; min_so_far: #distractor\n" +
+    "if num &lt; min_so_far or min_so_far == None: #distractor\n" +
+    "else: #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p02-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p02-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#p02-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p02-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      mygetFeedback(parsonsPuzzle, 'p02-feedback');
+  }); 
+})(); 
 </script>
