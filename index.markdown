@@ -134,17 +134,17 @@ Define a function `num_min` that takes one argument `nums` (a sequence of number
 })(); 
 </script>
 
-## Problem 3: Number of times minimum appears (again!)
-Define a function `num_min` that takes one argument `nums` (a sequence of numbers) and returns the number of times the minimum value appears in `nums`.
+## Problem 3: Alternating odd-even numbers
+Define a function `odd_even` that returns `True` if the integers in the sequence `nums` alternates in the pattern: odd, even, odd, even, ...
 
 *Examples*:
 ```
->>> num_min([1, 3, 1])
-2
->>> num_min((1, 2))
-1
->>> num_min([])
-0
+>>> odd_even([1, 3, 1])
+False
+>>> odd_even((1, 2))
+True
+>>> odd_even([])
+True
 ```
 
 <div id="p03-sortableTrash" class="sortable-code"></div> 
@@ -157,16 +157,17 @@ Define a function `num_min` that takes one argument `nums` (a sequence of number
 <fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p03-feedback"/></fieldset>
 <script type="text/javascript"> 
 (function(){
-  var initial = "def num_min(nums):\n" +
-    "    if nums == None or len(nums) == 0:\n" +
-    "        return 0\n" +
-    "    return nums.count(min(nums))\n" +
-    "if len(nums) == 0: #distractor\n" +
-    "minimum = nums[0] #distractor\n" +
-    "for num in nums[1:]: #distractor\n" +
-    "if num &lt; minimum: #distractor\n" +
-    "minimum = num #distractor\n" +
-    "return nums.count(minimum) #distractor";
+  var initial = "def odd_even(nums):\n" +
+    "    expecting_odd = True\n" +
+    "    for num in nums:\n" +
+    "        if expecting_odd != (num % 2 == 1):\n" +
+    "            return False\n" +
+    "        expecting_odd = not expecting_odd\n" +
+    "    return True\n" +
+    "if expecting_odd and (num % 2 == 0): #distractor\n" +
+    "if not expecting_odd and (num % 2 == 1): #distractor\n" +
+    "return True #distractor\n" +
+    "return False #distractor";
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "p03-sortable",
     "max_wrong_lines": 10,
@@ -177,7 +178,7 @@ Define a function `num_min` that takes one argument `nums` (a sequence of number
     "lang": "en",
     "show_feedback": true,
     "trashId": "p03-sortableTrash",
-    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(num_min([1, 3, 1]),2,'Error on input: [1, 3, 1]')\n  def test_1(self):\n    self.assertEqual(num_min((1, 2)),1,'Error on input: (1, 2)')\n  def test_2(self):\n    self.assertEqual(num_min([]),0,'Error on input: []')\n_test_result = myTests().main()"
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(odd_even([1, 3, 1]),False,'Error on input: [1, 3, 1]')\n  def test_1(self):\n    self.assertEqual(odd_even((1, 2)),True,'Error on input: (1, 2)')\n  def test_2(self):\n    self.assertEqual(odd_even([]),True,'Error on input: []')\n_test_result = myTests().main()"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
