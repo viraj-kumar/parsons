@@ -96,10 +96,11 @@ Define a function `num_min` with one argument `nums` (a sequence of numbers) and
 <script type="text/javascript"> 
 (function(){
   var initial = "def num_min(nums):\n" +
-    "    answer = 0\nmin_so_far = None\n" +
+    "    answer = 0\\nmin_so_far = None\n" +
     "    for num in nums:\n" +
     "        if min_so_far == None or num &lt; min_so_far:\n" +
-    "            answer = 1\nmin_so_far = num\n" +
+    "            answer = 1\n" +
+    "            min_so_far = num\n" +
     "        elif num == min_so_far:\n" +
     "            answer += 1\n" +
     "    return answer\n" +
