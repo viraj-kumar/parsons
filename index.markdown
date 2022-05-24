@@ -133,3 +133,61 @@ Define a function `num_min` that takes one argument `nums` (a sequence of number
   }); 
 })(); 
 </script>
+
+## Problem 3: Number of times minimum appears (again!)
+Define a function `num_min` that takes one argument `nums` (a sequence of numbers) and returns the number of times the minimum value appears in `nums`.
+
+*Examples*:
+```
+>>> num_min([1, 3, 1])
+2
+>>> num_min((1, 2))
+1
+>>> num_min([])
+0
+```
+
+<div id="p03-sortableTrash" class="sortable-code"></div> 
+<div id="p03-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p03-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p03-newInstanceLink" value="Reset Problem" type="button" /> 
+</p>
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p03-feedback"/></fieldset>
+<script type="text/javascript"> 
+(function(){
+  var initial = "def num_min(nums):\n" +
+    "    if nums == None or len(nums) == 0:\n" +
+    "        return 0\n" +
+    "    return nums.count(min(nums))\n" +
+    "if len(nums) == 0: #distractor\n" +
+    "minimum = nums[0] #distractor\n" +
+    "for num in nums[1:]: #distractor\n" +
+    "if num &lt; minimum: #distractor\n" +
+    "minimum = num #distractor\n" +
+    "return nums.count(minimum) #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p03-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p03-sortableTrash",
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(num_min([1, 3, 1]),2,'Error on input: [1, 3, 1]')\n  def test_1(self):\n    self.assertEqual(num_min((1, 2)),1,'Error on input: (1, 2)')\n  def test_2(self):\n    self.assertEqual(num_min([]),0,'Error on input: []')\n_test_result = myTests().main()"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#p03-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p03-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      mygetFeedback(parsonsPuzzle, 'p03-feedback'); 
+  }); 
+})(); 
+</script>
