@@ -7,7 +7,7 @@ title: Multiple Parson's Problems on One Page
 ---
 # Parsons Practice
 
-## Parsons 1: Right-angled triangle
+## Problem 1: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
 
 *Example*: If `n = 4`, the program should print:
@@ -17,6 +17,22 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
 ***
 ****
 ```
+<script>
+function mygetFeedback(parsonsPuzzle, feedback_id) {
+    if (parsonsPuzzle) {
+      var feedback = parsonsPuzzle.getFeedback();
+
+      var message = feedback.html || feedback.feedback;
+      if (!message && feedback.length) {
+        message = feedback.join('\n')
+      }
+      message = message && !feedback.success ? message : 'Congratulations on solving your Parsons Problem!';
+
+      var feedbackContainer = document.getElementById(feedback_id);
+      feedbackContainer.innerHTML = message;
+    }
+  }
+</script>
 
 <div id="p01-sortableTrash" class="sortable-code"></div> 
 <div id="p01-sortable" class="sortable-code"></div> 
@@ -25,8 +41,8 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
     <input id="p01-feedbackLink" value="Get Feedback" type="button" /> 
     <input id="p01-newInstanceLink" value="Reset Problem" type="button" /> 
 </p>
-<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="feedback"/></fieldset>
-<script type="text/javascript"> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p01-feedback"/></fieldset>
+<script type="text/javascript">
 (function(){
   var initial = "n = int(input())\n" +
     "for i in range(n):\n" +
@@ -53,22 +69,7 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
   }); 
   $("#p01-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      mygetFeedback(parsonsPuzzle); 
+      mygetFeedback(parsonsPuzzle, 'p01-feedback'); 
   }); 
 })();
-    
-function mygetFeedback(parsonsPuzzle) {
-    if (parsonsPuzzle) {
-      var feedback = parsonsPuzzle.getFeedback();
-
-      var message = feedback.html || feedback.feedback;
-      if (!message && feedback.length) {
-        message = feedback.join('\n')
-      }
-      message = message && !feedback.success ? message : 'Congratulations on solving your Parsons Problem!';
-
-      var feedbackContainer = document.getElementById('feedback');
-      feedbackContainer.innerHTML = message;
-    }
-  }
 </script>
