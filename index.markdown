@@ -107,7 +107,6 @@ Define a function `num_min` that takes one argument `nums` (a sequence of number
     "    return answer\n" +
     "min_so_far = 0 #distractor\n" +
     "min_so_far = -1 #distractor\n" +
-    "answer = 0 #distractor\n" +
     "if num &lt; min_so_far: #distractor\n" +
     "if num &lt; min_so_far or min_so_far == None: #distractor\n" +
     "else: #distractor";
