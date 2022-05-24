@@ -192,3 +192,59 @@ True
   }); 
 })(); 
 </script>
+
+## Problem 4: Sum of natural numbers
+Define a function `sum_natural` that returns the sum of all non-negative integers in a sequence `items` that may contain integers as well as non-integers.
+
+*Examples*:
+```
+>>> sum_natural([1, 3, 1])
+5
+>>> sum_natural((1, 2.5))
+1
+>>> sum_natural([None])
+0
+```
+
+<div id="p04-sortableTrash" class="sortable-code"></div> 
+<div id="p04-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p04-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p04-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p04-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def sum_natural(items):\n" +
+    "    answer = 0\n" +
+    "    for item in items:\n" +
+    "        if isinstance(item, int) and item &gt; 0:\n" +
+    "            answer += item\n" +
+    "    return answer\n" +
+    "if item &gt; 0: #distractor\n" +
+    "if isinstance(item, int): #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p04-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p04-sortableTrash",
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(sum_natural(['a', 1.2, -1]),0,\"Testing: ['a', 1.2, -1]\")\n  def test_1(self):\n    self.assertEqual(sum_natural(['a', 1.2, 1]),1,\"Testing: ['a', 1.2, 1]\")\n  def test_2(self):\n    self.assertEqual(sum_natural(['a', 12, -1]),12,\"Testing: ['a', 12, -1]\")\n  def test_3(self):\n    self.assertEqual(sum_natural([0, 1.2, -1]),0,\"Testing: [0, 1.2, -1]\")\n_test_result = myTests().main()"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#p04-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p04-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p04-feedback"); 
+  }); 
+})(); 
+</script>
