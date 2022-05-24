@@ -6,7 +6,7 @@ layout: default
 title: Parson's Problems for practice
 ---
 <script>
-function mygetFeedback(parsonsPuzzle, feedback_id) {
+function giveFeedback(parsonsPuzzle, feedback_id) {
     if (parsonsPuzzle) {
       var feedback = parsonsPuzzle.getFeedback();
 
@@ -67,7 +67,7 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
   }); 
   $("#p01-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      mygetFeedback(parsonsPuzzle, 'p01-feedback'); 
+      giveFeedback(parsonsPuzzle, 'p01-feedback'); 
   }); 
 })();
 </script>
@@ -129,7 +129,7 @@ Define a function `num_min` that takes one argument `nums` (a sequence of number
   }); 
   $("#p02-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      mygetFeedback(parsonsPuzzle, 'p02-feedback');
+      giveFeedback(parsonsPuzzle, 'p02-feedback');
   }); 
 })(); 
 </script>
@@ -188,7 +188,7 @@ True
   }); 
   $("#p03-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      mygetFeedback(parsonsPuzzle, 'p03-feedback'); 
+      giveFeedback(parsonsPuzzle, 'p03-feedback'); 
   }); 
 })(); 
 </script>
