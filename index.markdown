@@ -36,6 +36,33 @@ function giveFeedback(parsonsPuzzle, feedback_id) {
       feedbackContainer.innerHTML = message;
     }
   }
+
+function commentsFirst(code) {
+    var n = code.length;
+    var commentIDs = [];
+    var codeIDs = [];
+    for (i = 0; i < n; i++) {
+        var tr = code[i].trim();
+        if (tr.startsWith("#")) {
+            commentIDs.push(i);
+        } else {
+            codeIDs.push(i);
+        }
+    }
+    n = codeIDs.length;
+    var swap1, swap2, tmp;
+    for (i = 0; i < n; i++) {
+       swap1 = Math.floor(Math.random() * n);
+       swap2 = Math.floor(Math.random() * n);
+       tmp = codeIDs[swap1];
+       codeIDs[swap1] = codeIDs[swap2];
+       codeIDs[swap2] = tmp;
+    }
+    for (i = 0; i < n; i++) {
+        commentIDs.push(codeIDs[i]);
+    }
+    return commentIDs;
+}
 </script>
 
 ## Problem 1: Right-angled triangle
@@ -202,21 +229,13 @@ True
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.options.permutation = function(n) {
-    var permutation = [];
-    var i;
-    for (i = 0; i < n; i+= 2) {
-        permutation.push(i);
-    }
-    for (i = 1; i < n; i+= 2) {
-        permutation.push(i);
-    }
-    return permutation;
+    return commentsFirst(initial.split("\n"));
   };
   parsonsPuzzle.shuffleLines();
   $("#p03-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
-  }); 
+  });
   $("#p03-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       giveFeedback(parsonsPuzzle, 'p03-feedback'); 
