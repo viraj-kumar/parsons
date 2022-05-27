@@ -6,6 +6,15 @@ layout: default
 title: Parson's Problems for practice
 ---
 <script>
+function student_code(parsonsPuzzle) {
+    code_list = parsonsPuzzle.normalizeIndents(parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId));
+    code_str = '';
+    for (i = 0; i < student_code_list.length; i++) {
+        code_str += ("\n" + student_code_list[i].code);
+    }
+    return code_str;
+}
+
 function giveFeedback(parsonsPuzzle, feedback_id) {
     if (parsonsPuzzle) {
       var feedback = parsonsPuzzle.getFeedback();
@@ -13,14 +22,8 @@ function giveFeedback(parsonsPuzzle, feedback_id) {
       var message = feedback.html || feedback.feedback;
       if (!message && feedback.length) {
         message = feedback.join('\n')
-        student_code_list = parsonsPuzzle.normalizeIndents(parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId));
-        student_code = '';
-        for (i = 0; i < student_code_list.length; i++) {
-            student_code += student_code_list[i].code;
-        }
-        message += ('\n' + student_code);
       }
-      message = message && !feedback.success ? message : 'Congratulations on solving your Parsons Problem!';
+      message = message && !feedback.success ? message : "Congratulations on solving your Parsons Problem!" + student_code(parsonsPuzzle);
 
       var feedbackContainer = document.getElementById(feedback_id);
       feedbackContainer.innerHTML = message;
