@@ -13,6 +13,7 @@ function giveFeedback(parsonsPuzzle, feedback_id) {
       var message = feedback.html || feedback.feedback;
       if (!message && feedback.length) {
         message = feedback.join('\n')
+        message = parsonsPuzzle.normalizeIndents(parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId)).join('\n');
       }
       message = message && !feedback.success ? message : 'Congratulations on solving your Parsons Problem!';
 
