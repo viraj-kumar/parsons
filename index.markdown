@@ -7,6 +7,7 @@ title: Parson's Problems for practice
 ---
 <script type="text/javascript">
 const TAB_SPACES = 4;
+const SUBGOAL_MARKER = "##";
 function success_message(parsonsPuzzle) {
     var code_list = parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId);
     var html_str = "Your solution to this Parsons Problem is correct!<br><code>";
@@ -43,7 +44,7 @@ function commentsFirst(code) {
     var codeIDs = [];
     for (i = 0; i < n; i++) {
         var tr = code[i].trim();
-        if (tr.startsWith("#")) {
+        if (tr.startsWith(SUBGOAL_MARKER)) {
             commentIDs.push(i);
         } else {
             codeIDs.push(i);
@@ -197,19 +198,18 @@ True
 <fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p03-feedback"/></fieldset> 
 <script type="text/javascript"> 
 (function(){
-  var initial = "# Function header\n" +
+  var initial = "## Function header\n" +
     "def odd_even(nums):\n" +
-    "    # Our initial expectation\n" +
+    "    ## Initially expecting odd\n" +
     "    expecting_odd = True\n" +
-    "    # For each number in nums\n" +
+    "    ## For each number in nums...\n" +
     "    for num in nums:\n" +
-    "        # If it is against our expectation...\n" +
+    "        ## ...if it is not as expected, fail\n" +
     "        if expecting_odd != (num % 2 == 1):\n" +
-    "            # ...the odd-even property fails\n" +
     "            return False\n" +
-    "        # Update our expectation\n" +
+    "        ## Update expectation\n" +
     "        expecting_odd = not expecting_odd\n" +
-    "    # Verified that the odd-even property holds\n" +
+    "    ## Succeed if all numbers are as expected\n" +
     "    return True\n" +
     "if expecting_odd and (num % 2 == 0): #distractor\n" +
     "if not expecting_odd and (num % 2 == 1): #distractor\n" +
