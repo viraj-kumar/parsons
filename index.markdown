@@ -5,7 +5,7 @@
 layout: default
 title: Parson's Problems for practice
 ---
-<script>
+<script type="text/javascript">
 const TAB_SPACES = 4;
 function success_message(parsonsPuzzle) {
     var code_list = parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId);
