@@ -172,7 +172,8 @@ True
 (function(){
   var initial = "# Function header\n" +
     "def odd_even(nums):\n" +
-    "    expecting_odd = True  # Our initial expectation\n" +
+    "    # Our initial expectation\n" +
+    "    expecting_odd = True\n" +
     "    # For each number in nums\n" +
     "    for num in nums:\n" +
     "        # If it is against our expectation...\n" +
