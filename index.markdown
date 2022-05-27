@@ -6,27 +6,19 @@ layout: default
 title: Parson's Problems for practice
 ---
 <script>
-const TAB_SIZE = 4;
+const TAB_SPACES = 4;
 function success_message(parsonsPuzzle) {
     var code_list = parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId);
-    var html_str = "Congratulations, you solved this Parsons Puzzle!<br><br><code>";
-    var code_str = "";
+    var html_str = "Your solution to this Parsons Puzzle is correct!<br><code>";
     for (i = 0; i < code_list.length; i++) {
         var html_pre = "<br>";
         var code_pre = "\n";
         if (code_list[i].indent > 0) {
-            var spaces = code_list[i].indent * TAB_SIZE;
-            html_pre += "\xa0".repeat(spaces);
-            code_pre += " ".repeat(spaces);
+            html_pre += "\xa0".repeat(code_list[i].indent * TAB_SPACES);
         }
         html_str += (html_pre + code_list[i].code);
-        code_str += (code_pre + code_list[i].code);
     }
     html_str += "<br></code>";
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(code_str);
-        html_str += "<br> (Copied to clipboard)";
-    }
     return html_str;
 }
 
