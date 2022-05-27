@@ -7,10 +7,10 @@ title: Parson's Problems for practice
 ---
 <script>
 function student_code(parsonsPuzzle) {
-    code_list = parsonsPuzzle.normalizeIndents(parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId));
-    code_str = '';
-    for (i = 0; i < student_code_list.length; i++) {
-        code_str += ("\n" + student_code_list[i].code);
+    var code_list = parsonsPuzzle.normalizeIndents(parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId));
+    var code_str = '';
+    for (i = 0; i < code_list.length; i++) {
+        code_str += ("\n" + code_list[i].code);
     }
     return code_str;
 }
