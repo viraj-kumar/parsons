@@ -166,21 +166,27 @@ True
 <p> 
     <input id="p03-feedbackLink" value="Get Feedback" type="button" /> 
     <input id="p03-newInstanceLink" value="Reset Problem" type="button" /> 
-</p>
-<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p03-feedback"/></fieldset>
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p03-feedback"/></fieldset> 
 <script type="text/javascript"> 
 (function(){
-  var initial = "def odd_even(nums):\n" +
-    "    expecting_odd = True\n" +
+  var initial = "# Function header\n" +
+    "def odd_even(nums):\n" +
+    "    expecting_odd = True  # Our initial expectation\n" +
+    "    # For each number in nums\n" +
     "    for num in nums:\n" +
+    "        # If it is against our expectation...\n" +
     "        if expecting_odd != (num % 2 == 1):\n" +
+    "            # ...the odd-even property fails\n" +
     "            return False\n" +
+    "        # Update our expectation\n" +
     "        expecting_odd = not expecting_odd\n" +
+    "    # Verified that the odd-even property holds\n" +
     "    return True\n" +
     "if expecting_odd and (num % 2 == 0): #distractor\n" +
     "if not expecting_odd and (num % 2 == 1): #distractor\n" +
-    "return True #distractor\n" +
-    "return False #distractor";
+    "return False #distractor\n" +
+    "return True #distractor";
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "p03-sortable",
     "max_wrong_lines": 10,
