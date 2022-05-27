@@ -108,7 +108,7 @@ Define a function `num_min` with one argument `nums` (a sequence of numbers) whi
 <script type="text/javascript"> 
 (function(){
   var initial = "def num_min(nums):\n" +
-    "    answer = 0\\nmin_so_far = None\n" +
+    "    answer = 0; min_so_far = None\n" +
     "    for num in nums:\n" +
     "        if min_so_far == None or num &lt; min_so_far:\n" +
     "            answer = 1\n" +
