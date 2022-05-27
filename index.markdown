@@ -201,7 +201,17 @@ True
     "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(odd_even([1, 3, 1]),False,'Testing: [1, 3, 1]')\n  def test_1(self):\n    self.assertEqual(odd_even((1, 2, 3)),True,'Testing: (1, 2, 3)')\n  def test_2(self):\n    self.assertEqual(odd_even([]),True,'Testing: []')\n_test_result = myTests().main()"
   });
   parsonsPuzzle.init(initial);
-  parsonsPuzzle.options.permutation = [0, 2, 4, 6, 8, 10, 12, 1, 3, 5, 7, 9, 11, 13, 14, 15, 16, 17];
+  parsonsPuzzle.options.permutation = function(n) {
+    var permutation = [];
+    var i;
+    for (i = 0; i < n; i+= 2) {
+        permutation.push(i);
+    }
+    for (i = 1; i < n; i+= 2) {
+        permutation.push(i);
+    }
+    return permutation;
+  };
   parsonsPuzzle.shuffleLines();
   $("#p03-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
