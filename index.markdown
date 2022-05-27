@@ -13,7 +13,12 @@ function giveFeedback(parsonsPuzzle, feedback_id) {
       var message = feedback.html || feedback.feedback;
       if (!message && feedback.length) {
         message = feedback.join('\n')
-        message = parsonsPuzzle.normalizeIndents(parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId)).join('\n');
+        student_code_list = parsonsPuzzle.normalizeIndents(parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId));
+        student_code = '';
+        for (i = 0; i < student_code_list.length; i++) {
+            student_code += student_code_list[i].code;
+        }
+        message += ('\n' + student_code);
       }
       message = message && !feedback.success ? message : 'Congratulations on solving your Parsons Problem!';
 
