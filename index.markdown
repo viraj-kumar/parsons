@@ -6,17 +6,32 @@ layout: default
 title: Parson's Problems for practice
 ---
 <script>
-function student_code(parsonsPuzzle) {
+const TAB_SIZE = 4;
+function success_message(parsonsPuzzle) {
     var code_list = parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId);
-    var code_str = "<code>";
+    var html_str = "Congratulations, you solved this Parsons Puzzle!<br><br><code>";
+    var code_str = "";
     for (i = 0; i < code_list.length; i++) {
-        var spaces = "";
+        var html_spaces = "";
+        var code_spaces = "";
         if (code_list[i].indent > 0) {
-            spaces = "\xa0".repeat(code_list[i].indent * 4);
+            var spaces = code_list[i].indent * TAB_SIZE;
+            html_spaces = "\xa0".repeat(spaces);
+            code_spaces = " ".repeat(spaces);
         }
-        code_str += ("<br>" + spaces + code_list[i].code);
+        html_str += ("<br>" + html_spaces + code_list[i].code);
+        code_str += ("\n" + code_spaces + code_list[i].code);
     }
-    return code_str + "<br></code>";
+    html_str += "<br></code>";
+    if (navigator.clipboard) {
+        try {
+            await navigator.clipboard.writeText(code_str);
+            html_str += "<br> (Copied to clipboard)";
+        } catch (err) {
+            console.error("Failed to copy!", err);
+        }
+    }
+    return html_str;
 }
 
 function giveFeedback(parsonsPuzzle, feedback_id) {
@@ -27,7 +42,7 @@ function giveFeedback(parsonsPuzzle, feedback_id) {
       if (!message && feedback.length) {
         message = feedback.join('\n')
       }
-      message = message && !feedback.success ? message : "Congratulations on solving your Parsons Problem!" + student_code(parsonsPuzzle);
+      message = message && !feedback.success ? message : success_message(parsonsPuzzle);
 
       var feedbackContainer = document.getElementById(feedback_id);
       feedbackContainer.innerHTML = message;
