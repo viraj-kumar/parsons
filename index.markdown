@@ -10,7 +10,7 @@ function student_code(parsonsPuzzle) {
     var code_list = parsonsPuzzle.normalizeIndents(parsonsPuzzle.getModifiedCode("#ul-" + parsonsPuzzle.options.sortableId));
     var code_str = '';
     for (i = 0; i < code_list.length; i++) {
-        code_str += ("\n" + code_list[i].code);
+        code_str += ("<br>" + code_list[i].code);
     }
     return code_str;
 }
