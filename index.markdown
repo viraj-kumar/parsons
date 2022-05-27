@@ -12,24 +12,20 @@ function success_message(parsonsPuzzle) {
     var html_str = "Congratulations, you solved this Parsons Puzzle!<br><br><code>";
     var code_str = "";
     for (i = 0; i < code_list.length; i++) {
-        var html_spaces = "";
-        var code_spaces = "";
+        var html_pre = "<br>";
+        var code_pre = "\n";
         if (code_list[i].indent > 0) {
             var spaces = code_list[i].indent * TAB_SIZE;
-            html_spaces = "\xa0".repeat(spaces);
-            code_spaces = " ".repeat(spaces);
+            html_pre += "\xa0".repeat(spaces);
+            code_pre += " ".repeat(spaces);
         }
-        html_str += ("<br>" + html_spaces + code_list[i].code);
-        code_str += ("\n" + code_spaces + code_list[i].code);
+        html_str += (html_pre + code_list[i].code);
+        code_str += (code_pre + code_list[i].code);
     }
     html_str += "<br></code>";
     if (navigator.clipboard) {
-        try {
-            await navigator.clipboard.writeText(code_str);
-            html_str += "<br> (Copied to clipboard)";
-        } catch (err) {
-            console.error("Failed to copy!", err);
-        }
+        navigator.clipboard.writeText(code_str);
+        html_str += "<br> (Copied to clipboard)";
     }
     return html_str;
 }
