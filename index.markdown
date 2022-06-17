@@ -298,3 +298,6 @@ Define a function `sum_natural` that returns the sum of all natural numbers (non
   }); 
 })(); 
 </script>
+
+### Examples created by Faculty
+[BITES FDP, 18 June 2022](./parsons/18_06_2022.html)
