@@ -308,32 +308,28 @@ Write a function <code>contains_two(nums)</code> that checks whether <code>nums<
 <p> 
     <input id="vk01-feedbackLink" value="Get Feedback" type="button" /> 
     <input id="vk01-newInstanceLink" value="Reset Problem" type="button" /> 
-</p> 
-<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="vk01-feedback"/></fieldset> 
-<script type="text/javascript"> 
+</p>
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="vk01-feedback"/></fieldset>
+<script type="text/javascript">
 (function(){
-  var initial = "def contains_two(nums):\n" +
-    "    if not nums:\n" +
-    "        return False\n" +
-    "    return len(set(nums)) &gt; 1\n" +
-    "    \n" +
-    "else: #distractor";
+  var initial = "n = int(input())\n" +
+    "for i in range(n):\n" +
+    "	print(&#039;*&#039; * (i+1))\n" +
+    "n = input() #distractor\n" +
+    "for i in range(1, n): #distractor\n" +
+    "	print(&#039;*&#039; * i) #distractor";
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "vk01-sortable",
     "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
     "can_indent": true,
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
-    "trashId": "vk01-sortableTrash",
-    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(contains_two([1, 2]),True,)\n  def test_1(self):\n    self.assertEqual(contains_two([1, 1]),False,)\n  def test_2(self):\n    self.assertEqual(contains_two([]),False,)\n  def test_3(self):\n    self.assertEqual(contains_two(None),False,)\n_test_result = myTests().main()"
+    "trashId": "vk01-sortableTrash"
   });
   parsonsPuzzle.init(initial);
-  parsonsPuzzle.options.permutation = function(n) {
-    return commentsFirst(initial.split("\n"));
-  };
   parsonsPuzzle.shuffleLines();
   $("#vk01-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
@@ -341,7 +337,7 @@ Write a function <code>contains_two(nums)</code> that checks whether <code>nums<
   }); 
   $("#vk01-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      giveFeedback(parsonsPuzzle, "vk01-feedback"); 
+      giveFeedback(parsonsPuzzle, 'vk01-feedback'); 
   }); 
-})(); 
+})();
 </script>
