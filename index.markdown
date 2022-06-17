@@ -315,7 +315,7 @@ Write a function <code>contains_two(nums)</code> that checks whether <code>nums<
   var initial = "def contains_two(nums):\n" +
     "    if not nums:\n" +
     "        return False\n" +
-    "    return len(set(nums)) &gt;= 2\n" +
+    "    return len(set(nums)) &gt; 1\n" +
     "    \n" +
     "else: #distractor";
   var parsonsPuzzle = new ParsonsWidget({
