@@ -528,3 +528,51 @@ Write a function to return the count of odd and even numbers in a list.
 })(); 
 </script>
     
+Calculate factorial of n
+<div id="fact-sortableTrash" class="sortable-code"></div> 
+<div id="fact-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="fact-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="fact-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="fact-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def factorial(n):\n" +
+    "    if n &lt; 0:\n" +
+    "        return None\n" +
+    "    elif n == 0:\n" +
+    "        return 1\n" +
+    "    return n * factorial(n-1)\n" +
+    "ans = 1 #distractor\n" +
+    "ans *= i #distractor\n" +
+    "for i in range(1, n+1): #distractor\n" +
+    "return ans #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "fact-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "fact-sortableTrash",
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(factorial(3),6,)\n  def test_1(self):\n    self.assertEqual(factorial(-3),None,)\n  def test_2(self):\n    self.assertEqual(factorial(0),1,)\n_test_result = myTests().main()"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#fact-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#fact-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "fact-feedback"); 
+  }); 
+})(); 
+</script>
