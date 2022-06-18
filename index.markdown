@@ -480,3 +480,51 @@ write a function to find the gcd of two numbers
   }); 
 })(); 
 </script>
+
+Write a function to return the count of odd and even numbers in a list.
+<div id="mr128-sortableTrash" class="sortable-code"></div> 
+<div id="mr128-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="mr128-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="mr128-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="mr128-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def even_count(nums):\n" +
+    "	even = 0\n" +
+    "	odd = 0\n" +
+    "	for num in nums:\n" +
+    "		if num%2==0:\n" +
+    "			even+=1\n" +
+    "		else:\n" +
+    "			odd+=1\n" +
+    "	return even,odd";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "mr128-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "mr128-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#mr128-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#mr128-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "mr128-feedback"); 
+  }); 
+})(); 
+</script>
+    
