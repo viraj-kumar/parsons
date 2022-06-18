@@ -337,7 +337,7 @@ Write a function <code>contains_two(nums)</code> that checks whether <code>nums<
   }); 
   $("#p05-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      parsonsPuzzle.getFeedback(); 
+      giveFeedback(parsonsPuzzle, "p05-feedback"); 
   }); 
 })(); 
 </script>
