@@ -300,44 +300,47 @@ Define a function `sum_natural` that returns the sum of all natural numbers (non
 </script>
 
 ### Examples created by Faculty (BITES FDP, 18 June 2022)
-Write a function <code>contains_two(nums)</code> that checks whether <code>nums</code> contains at least two distinct values.
+Define a function sum_natural that returns the sum of all natural numbers (non-negative integers) in a sequence items. Note that items may contain integers as well as non-integers.
 
-<div id="p05-sortableTrash" class="sortable-code"></div> 
-<div id="p05-sortable" class="sortable-code"></div> 
+<div id="tej123-sortableTrash" class="sortable-code"></div> 
+<div id="tej123-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="p05-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="p05-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="tej123-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="tej123-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
-<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p05-feedback"/></fieldset>
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="tej123-feedback"/></fieldset> 
 <script type="text/javascript"> 
 (function(){
-  var initial = "def contains_two(nums):\n" +
-    "    if not nums:\n" +
-    "        return False\n" +
-    "    return len(set(nums)) &gt;= 2\n" +
-    "else: #distractor";
+  var initial = "def sum_natural(items):\n" +
+    "    answer = 0\n" +
+    "    for item in items:\n" +
+    "        if isinstance(item, int) and item &gt; 0:\n" +
+    "            answer += item\n" +
+    "    return answer";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p05-sortable",
+    "sortableId": "tej123-sortable",
     "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
     "can_indent": true,
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
-    "trashId": "p05-sortableTrash",
-    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(contains_two([1, 2]),True,)\n  def test_1(self):\n    self.assertEqual(contains_two([1, 1]),False,)\n  def test_2(self):\n    self.assertEqual(contains_two([]),False,)\n  def test_3(self):\n    self.assertEqual(contains_two(None),False,)\n_test_result = myTests().main()"
+    "trashId": "tej123-sortableTrash"
   });
   parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
   parsonsPuzzle.shuffleLines();
-  $("#p05-newInstanceLink").click(function(event){ 
+  $("#tej123-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#p05-feedbackLink").click(function(event){ 
+  $("#tej123-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      giveFeedback(parsonsPuzzle, "p05-feedback"); 
+      giveFeedback(parsonsPuzzle, "tej123-feedback"); 
   }); 
 })(); 
 </script>
