@@ -344,3 +344,139 @@ Define a function sum_natural that returns the sum of all natural numbers (non-n
   }); 
 })(); 
 </script>
+
+Write a program to add 2 numbers
+<div id="gl-sortableTrash" class="sortable-code"></div> 
+<div id="gl-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="gl-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="gl-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="gl-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "#sum of 2 nos\n" +
+    "	num1 = 1.5\n" +
+    "	num2 = 6.3\n" +
+    "	sum = num1 + num2\n" +
+    "		print(&#039;The sum of {0} and {1} is {2}&#039;.format(num1, num2, sum))\n" +
+    "else #distractor\n" +
+    "sum = num1 - num2 #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "gl-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "gl-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#gl-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#gl-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "gl-feedback"); 
+  }); 
+})(); 
+</script>
+    
+To add N natural number
+<div id="KJ123-sortableTrash" class="sortable-code"></div> 
+<div id="KJ123-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="KJ123-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="KJ123-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="KJ123-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def nat_num(num):\n" +
+    "	answer=0\n" +
+    "    for num in nums:\n" +
+    "    	answer += num\n" +
+    "    return answer\n" +
+    "if num&lt;=2 #distractor\n" +
+    "else: #distractor\n" +
+    "answer = num #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "KJ123-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "KJ123-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#KJ123-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#KJ123-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "KJ123-feedback"); 
+  }); 
+})(); 
+</script>
+    
+write a function to find the gcd of two numbers
+<div id="nsk123-sortableTrash" class="sortable-code"></div> 
+<div id="nsk123-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="nsk123-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="nsk123-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="nsk123-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def gcd(m, n) :\n" +
+    "   while m != n :\n" +
+    "       if m &gt; n :\n" +
+    "          m -= n\n" +
+    "       else: \n" +
+    "          n -=m \n" +
+    "   return m       ";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "nsk123-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "nsk123-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#nsk123-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#nsk123-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "nsk123-feedback"); 
+  }); 
+})(); 
+</script>
