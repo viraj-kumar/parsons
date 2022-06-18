@@ -309,6 +309,7 @@ Write a function <code>contains_two(nums)</code> that checks whether <code>nums<
     <input id="p05-feedbackLink" value="Get Feedback" type="button" /> 
     <input id="p05-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p05-feedback"/></fieldset>
 <script type="text/javascript"> 
 (function(){
   var initial = "def contains_two(nums):\n" +
