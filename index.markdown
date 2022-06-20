@@ -279,6 +279,7 @@ Define a function `sum_natural` that returns the sum of all natural numbers (non
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.UnitTestGrader,
     "exec_limit": 2500,
+    "python3": true,
     "can_indent": true,
     "x_indent": 50,
     "lang": "en",
