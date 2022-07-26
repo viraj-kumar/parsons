@@ -66,6 +66,7 @@ function commentsFirst(code) {
 }
 </script>
 
+<!---
 ## Problem 1: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
 
@@ -577,3 +578,4 @@ Calculate factorial of n
   }); 
 })(); 
 </script>
+-->
