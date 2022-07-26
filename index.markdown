@@ -66,6 +66,100 @@ function commentsFirst(code) {
 }
 </script>
 
+## Problem 1: A typical day for a student/teacher
+Re-arrange the blocks below to construct a typical day in the life of a student/teacher.
+    
+<div id="p01-sortableTrash" class="sortable-code"></div> 
+<div id="p01-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p01-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p01-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p01-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "Wake up\n" +
+    "Get ready\n" +
+    "Go to campus\n" +
+    "Come home\n" +
+    "Go to sleep";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p01-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p01-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p01-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p01-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p01-feedback"); 
+  }); 
+})(); 
+</script>
+
+## Problem 2: Faculty-student interaction
+Re-arrange the blocks below to describe how a faculty member might interact with students after evaluating their Midterm Exams.
+ 
+<div id="p02-sortableTrash" class="sortable-code"></div> 
+<div id="p02-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p02-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p02-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "If score is less than 40:\n" +
+    "    Email student: &quot;Let us meet for a personal discussion&quot;\n" +
+    "Otherwise, if score is less than 60:\n" +
+    "    Email student: &quot;I urge you to join the help session&quot;\n" +
+    "Otherwise, if score is 80:\n" +
+    "    Email student: &quot;I suggest you join the help session&quot;\n" +
+    "Otherwise:\n" +
+    "    Email student: &quot;Keep up the good work&quot;\n" +
+    "Email student to say &quot;You failed&quot; #distractor\n" +
+    "Skip this student #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p02-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p02-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p02-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p02-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p02-feedback"); 
+  }); 
+})(); 
+</script>
 <!---
 ## Problem 1: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
