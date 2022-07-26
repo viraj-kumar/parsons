@@ -66,7 +66,7 @@ function commentsFirst(code) {
 }
 </script>
 
-## Problem 1: A typical day for a student/teacher
+## Simple Parsons Problem: A typical day for a student/teacher
 Re-arrange the blocks below to construct a typical day in the life of a student/teacher.
     
 <div id="p01-sortableTrash" class="sortable-code"></div> 
@@ -111,9 +111,9 @@ Re-arrange the blocks below to construct a typical day in the life of a student/
 })(); 
 </script>
 
-## Problem 2: Faculty-student interaction
+## Parsons Problem with distractors:
 Re-arrange the blocks below to describe how a faculty member might interact with students after evaluating their Midterm Exams.
- 
+
 <div id="p02-sortableTrash" class="sortable-code"></div> 
 <div id="p02-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
@@ -128,8 +128,8 @@ Re-arrange the blocks below to describe how a faculty member might interact with
     "    Email student: &quot;Let us meet for a personal discussion&quot;\n" +
     "Otherwise, if score is less than 60:\n" +
     "    Email student: &quot;I urge you to join the help session&quot;\n" +
-    "Otherwise, if score is 80:\n" +
-    "    Email student: &quot;I suggest you join the help session&quot;\n" +
+    "Otherwise, if score is less than 80:\n" +
+    "    Email student: &quot;You are welcome to join the help session&quot;\n" +
     "Otherwise:\n" +
     "    Email student: &quot;Keep up the good work&quot;\n" +
     "Email student to say &quot;You failed&quot; #distractor\n" +
@@ -160,6 +160,8 @@ Re-arrange the blocks below to describe how a faculty member might interact with
   }); 
 })(); 
 </script>
+
+
 <!---
 ## Problem 1: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
