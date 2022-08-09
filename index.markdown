@@ -66,6 +66,7 @@ function commentsFirst(code) {
 }
 </script>
 
+<!---
 ## Simple Parsons Problem: A typical day for a student/teacher
 Re-arrange the blocks below to construct a typical day in the life of a student/teacher.
     
@@ -161,8 +162,8 @@ Re-arrange the blocks below to describe how a faculty member might interact with
 })(); 
 </script>
 
+-->
 
-<!---
 ## Problem 1: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
 
@@ -674,4 +675,4 @@ Calculate factorial of n
   }); 
 })(); 
 </script>
--->
+
