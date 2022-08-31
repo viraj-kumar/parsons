@@ -66,6 +66,184 @@ function commentsFirst(code) {
 }
 </script>
 
+## Problem 1: Improve this code
+The following Python logic is used to check whether a candidate is eligible for a job based on their `age`.
+Re-arrange the blocks below so that the program performs the *same* check, but with more readable code.
+
+```
+if age < 18:
+    print "You cannot apply"
+else:
+    if age > 42:
+        print "You cannot apply"
+    else:
+        print "You can apply"
+```
+<div id="p01-sortableTrash" class="sortable-code"></div> 
+<div id="p01-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p01-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p01-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p01-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "if 18 &lt;= age &lt;= 42:\n" +
+    "    print &quot;You can apply&quot;\n" +
+    "else:\n" +
+    "    print &quot;You cannot apply&quot;\n" +
+    "if age &gt;= 18 or age &lt;= 42: #distractor\n" +
+    "if age &gt;= 18: #distractor\n" +
+    "if age &lt;= 42: #distractor\n" +
+    "pass #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p01-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p01-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p01-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p01-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p01-feedback"); 
+  }); 
+})(); 
+</script>
+
+## Problem 2: Control flow
+The following *poorly written but correct* Python code calculates the maximum number of days in a given `month`.
+Note that February (month 2) has a maximum of 29 days.
+Re-arrange the blocks below to show the order of *all* comparisons (whether `True` or `False`) made by the code when `month = 2`.
+
+```
+if 1 <= month <= 7:     # January to July
+    if month % 2 == 1:
+        max_days = 31
+    else:
+        max_days = 30
+        if month == 2:  # February
+            max_days -= 1
+elif month <= 12:       # August to December
+    max_days = 31 - (month % 2)
+if month < 1 or month > 12:
+    max_days = None     # Invalid month
+```
+
+<div id="p02-sortableTrash" class="sortable-code"></div> 
+<div id="p02-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p02-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p02-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "1 &lt;= month &lt;= 7\n" +
+    "month % 2 == 1\n" +
+    "month == 2\n" +
+    "month &lt; 1 or month &gt; 12\n" +
+    "month &lt;= 12 #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p02-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p02-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p02-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p02-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p02-feedback"); 
+  }); 
+})(); 
+</script>
+
+## Problem 3: Control flow, again
+Reconsider the same Python code above. Re-arrange the blocks below to show the order of *all* assignments made to `max_days` when `month = 0`.
+
+```
+if 1 <= month <= 7:     # January to July
+    if month % 2 == 1:
+        max_days = 31
+    else:
+        max_days = 30
+        if month == 2:  # February
+            max_days -= 1
+elif month <= 12:       # August to December
+    max_days = 31 - (month % 2)
+if month < 1 or month > 12:
+    max_days = None     # Invalid month
+```
+
+<div id="p03-sortableTrash" class="sortable-code"></div> 
+<div id="p03-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p03-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p03-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p03-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "max_days = 31 - (month % 2)\n" +
+    "max_days = None\n" +
+    "max_days = 31 #distractor\n" +
+    "max_days = 30 #distractor\n" +
+    "max_days -= 1 #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p03-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p03-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p03-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p03-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p03-feedback"); 
+  }); 
+})(); 
+</script>
+
 <!---
 ## Simple Parsons Problem: A typical day for a student/teacher
 Re-arrange the blocks below to construct a typical day in the life of a student/teacher.
@@ -161,8 +339,6 @@ Re-arrange the blocks below to describe how a faculty member might interact with
   }); 
 })(); 
 </script>
-
--->
 
 ## Problem 1: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
@@ -675,4 +851,4 @@ Calculate factorial of n
   }); 
 })(); 
 </script>
-
+-->
