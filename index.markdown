@@ -169,7 +169,7 @@ Further modify the above function so that it returns the sum of all *positive* i
 </script>
 
 ## Problem 3: Mostly positive
-The following function has one argument: a list `xs` of integers (positive, negative, or zero). The function should return `True` if the most freuqent type of integers in the list are *positive*. Otherwise, it should return `False`. Re-arrange the blocks of code to create such a function.
+The following function has one argument: a list `xs` of integers (positive, negative, or zero). The function should return `True` if the most frequent type of integers in the list are *positive*. Otherwise, it should return `False`. Re-arrange the blocks of code to create such a function.
 
 <div id="p03-sortableTrash" class="sortable-code"></div> 
 <div id="p03-sortable" class="sortable-code"></div> 
