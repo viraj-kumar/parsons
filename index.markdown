@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default
-title: Parson's Problems for practice
+title: Parson's Problems for Lab 3
 ---
 <script type="text/javascript">
 const TAB_SPACES = 4;
@@ -66,6 +66,157 @@ function commentsFirst(code) {
 }
 </script>
 
+##Problem 1: Palindrome Core
+A *palindrome* is a string that is equal to its reverse, such as `malayalam`. The following Python function checks whether string `s` is a palindrome:
+```
+def is_palindrome(s):
+    return s == s[::-1]
+```
+
+The above solution makes a reversed copy `s[::-1]` of `s` and then compares the two strings. Here is another implementation of `is_palindrome()` without copying strings. It makes use of *negative indexing* (as discussed in class):
+```
+def is_palindrome(s):
+    for i in range(len(s) // 2):  # i = 0, 1, ..., len(s) // 2 - 1
+        if s[i] != s[-(i + 1)]:
+            return False
+    return True
+```
+
+And here is a similar implementation which uses a `while`-loop:
+```
+def is_palindrome(s):
+    i = 0
+    while i < len(s) // 2:
+        if s[i] != s[-(i + 1)]:
+            return False
+        i += 1           # What if we forget to do this?
+    return True
+```
+
+Notice that the last two implementations compare successive *pairs* of letters: first vs last, second vs second-last, etc. until reaching the midpoint. (In case `len(s)` is odd, they do *not* examine the middle letter.) As soon as there is a mismatch, these functions return `False`. Instead, we want to return the mismatched middle part of the string `s`, which we call the *palindrome core*. In case `s` is an odd-length palindrome, its core is its middle letter.
+
+Examples:
+```
+>>> palindrome_core('abcdba')
+'cd'
+>>> palindrome_core('aba')
+'b'
+```
+
+Rearrange these blocks to write such a function. Note: There may be more than one correct solution.
+
+<div id="p01-sortableTrash" class="sortable-code"></div> 
+<div id="p01-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p01-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p01-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p01-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def palindrome_core(s):\n" +
+    "    i = 0\n" +
+    "    while i &lt; len(s) // 2 and s[i] == s[-(i + 1)]:\n" +
+    "        i += 1\n" +
+    "    return s[i : len(s) - i]\n" +
+    "while i &lt; len(s) // 2: #distractor\n" +
+    "while s[i] == s[-(i + 1)]: #distractor\n" +
+    "if s[i] != s[-(i + 1)]: #distractor\n" +
+    "return s[i : -i] #distractor\n" +
+    "return s[i : -(i + 1)] #distractor\n" +
+    "return s[i : len(s) - i] #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p01-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p01-sortableTrash",
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(palindrome_core('aba'),'b',\"s = 'aba'\")\n  def test_1(self):\n    self.assertEqual(palindrome_core('abc'),'abc',\"s = 'abc'\")\n  def test_2(self):\n    self.assertEqual(palindrome_core('a'),'a',\"s = 'a'\")\n  def test_3(self):\n    self.assertEqual(palindrome_core(''),'',\"s = '' # empty string\")\n_test_result = myTests().main()"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p01-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p01-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p01-feedback"); 
+  }); 
+})(); 
+</script>
+
+##Problem 2: Merge two sorted lists
+Assume that `x` and `y` are two sorted lists of integers. They can easily be merged into a single sorted list as follows:
+```
+def merge(x, y):
+    return sorted(x + y)  # the + operation concatenates the two lists
+```
+
+While this solution is correct, its *asymptotic running time* can be *O*(*n* log *n*) in the worst case (where *n* is the length of the combined list `x + y`). Rearrange these blocks to implement merge in *O*(*n*) worst-case running time.
+
+<div id="p02-sortableTrash" class="sortable-code"></div> 
+<div id="p02-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p02-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p02-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def merge(x, y):\n" +
+    "    result = []\n" +
+    "    i_x = 0; i_y = 0\n" +
+    "    while i_x &lt; len(x) and i_y &lt; len(y):\n" +
+    "        if x[i_x] &lt;= y[i_y]:\n" +
+    "            result.append(x[i_x])\n" +
+    "            i_x += 1\n" +
+    "        else:\n" +
+    "            result.append(y[i_y])\n" +
+    "            i_y += 1\n" +
+    "    return result + x[i_x:] + y[i_y:]\n" +
+    "while max(i_x, i_y) &lt; min(len(x), len(y)): #distractor\n" +
+    "if i_x &lt;= i_y: #distractor\n" +
+    "result += x + y #distractor\n" +
+    "return result #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p02-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p02-sortableTrash",
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(merge([1, 2], [2, 3]),[1, 2, 2, 3],\"[1, 2], [2, 3]\")\n  def test_1(self):\n    self.assertEqual(merge([1], [2, 3]),[1, 2, 3],\"[1], [2, 3]\")\n  def test_2(self):\n    self.assertEqual(merge([1, 3], [2]),[1, 2, 3],\"[1, 3], [2]\")\n  def test_3(self):\n    self.assertEqual(merge([1, 3, 4], [2, 2, 5]),[1, 2, 2, 3, 4, 5],\"[1, 3, 4], [2, 2, 5]\")\n  def test_4(self):\n    self.assertEqual(merge([1], []),[1],\"[1], []\")\n  def test_5(self):\n    self.assertEqual(merge([], [1]),[1],\"[], [1]\")\n_test_result = myTests().main()"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p02-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p02-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p02-feedback"); 
+  }); 
+})(); 
+</script>
+
+<!---
 ## Problem 1: Modify this function
 The following function has one argument: a list `xs`. The function is *supposed* to sum up all the integers in `xs`, but it presently sums up *all* items in `xs`. Re-arrange the blocks below so that the function calculates the sum correctly.
 
@@ -269,7 +420,6 @@ The following function has two arguments: a list of strings `xs` and a string `s
 </script>
 
 
-<!---
 ## Simple Parsons Problem: A typical day for a student/teacher
 Re-arrange the blocks below to construct a typical day in the life of a student/teacher.
     
