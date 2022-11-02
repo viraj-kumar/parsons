@@ -66,7 +66,7 @@ function commentsFirst(code) {
 }
 </script>
 
-##Problem 1: Palindrome Core
+## Problem 1: Palindrome Core
 A *palindrome* is a string that is equal to its reverse, such as `malayalam`. The following Python function checks whether string `s` is a palindrome:
 ```
 def is_palindrome(s):
@@ -154,7 +154,7 @@ Rearrange these blocks to write such a function. Note: There may be more than on
 })(); 
 </script>
 
-##Problem 2: Merge two sorted lists
+## Problem 2: Merge two sorted lists
 Assume that `x` and `y` are two sorted lists of integers. They can easily be merged into a single sorted list as follows:
 ```
 def merge(x, y):
