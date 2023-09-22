@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default
-title: Parson's Problems for Lab 3
+title: Parson's Problems
 ---
 <script type="text/javascript">
 const TAB_SPACES = 4;
@@ -66,6 +66,280 @@ function commentsFirst(code) {
 }
 </script>
 
+## Simple Parsons Problem: A typical day for a student/teacher
+Re-arrange the blocks below to construct a typical day in the life of a student/teacher.
+    
+<div id="p01-sortableTrash" class="sortable-code"></div> 
+<div id="p01-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p01-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p01-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p01-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "Wake up\n" +
+    "Get ready\n" +
+    "Go to campus\n" +
+    "Come home\n" +
+    "Go to sleep";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p01-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p01-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p01-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p01-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p01-feedback"); 
+  }); 
+})(); 
+</script>
+
+## Parsons Problem with distractors:
+Re-arrange the blocks below to describe how a faculty member might interact with students after evaluating their Midterm Exams.
+
+<div id="p02-sortableTrash" class="sortable-code"></div> 
+<div id="p02-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p02-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p02-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "If score is less than 40:\n" +
+    "    Email student: &quot;Let us meet for a personal discussion&quot;\n" +
+    "Otherwise, if score is less than 60:\n" +
+    "    Email student: &quot;I urge you to join the help session&quot;\n" +
+    "Otherwise, if score is less than 80:\n" +
+    "    Email student: &quot;You are welcome to join the help session&quot;\n" +
+    "Otherwise:\n" +
+    "    Email student: &quot;Keep up the good work&quot;\n" +
+    "Email student to say &quot;You failed&quot; #distractor\n" +
+    "Skip this student #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p02-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p02-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p02-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p02-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p02-feedback"); 
+  }); 
+})(); 
+</script>
+
+## Problem 1: Right-angled triangle
+Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
+
+*Example*: If `n = 4`, the program should print:
+```
+*
+**
+***
+****
+```
+<div id="p01-sortableTrash" class="sortable-code"></div> 
+<div id="p01-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p01-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p01-newInstanceLink" value="Reset Problem" type="button" /> 
+</p>
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p01-feedback"/></fieldset>
+<script type="text/javascript">
+(function(){
+  var initial = "n = int(input())\n" +
+    "for i in range(n):\n" +
+    "	print(&#039;*&#039; * (i+1))\n" +
+    "n = input() #distractor\n" +
+    "for i in range(1, n): #distractor\n" +
+    "	print(&#039;*&#039; * i) #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p01-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p01-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#p01-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p01-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, 'p01-feedback'); 
+  }); 
+})();
+</script>
+
+## Problem 2: Number of times minimum appears
+Define a function `num_min` with one argument `nums` (a sequence of numbers) which returns the *frequency* of the minimum value in `nums`.
+
+*Examples*:
+```
+>>> num_min([1, 3, 1])
+2
+>>> num_min((1, 2))
+1
+>>> num_min([])
+0
+```
+<div id="p02-sortableTrash" class="sortable-code"></div> 
+<div id="p02-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p02-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p02-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "def num_min(nums):\n" +
+    "    answer = 0; min_so_far = None\n" +
+    "    for num in nums:\n" +
+    "        if min_so_far == None or num &lt; min_so_far:\n" +
+    "            answer = 1\n" +
+    "            min_so_far = num\n" +
+    "        elif num == min_so_far:\n" +
+    "            answer += 1\n" +
+    "    return answer\n" +
+    "min_so_far = 0 #distractor\n" +
+    "min_so_far = -1 #distractor\n" +
+    "if num &lt; min_so_far: #distractor\n" +
+    "else: #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p02-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p02-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#p02-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#p02-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, "p02-feedback"); 
+  }); 
+})(); 
+</script>
+
+## Problem 3: Alternating odd-even numbers
+Define a function `odd_even` that returns `True` if the integers in the sequence `nums` alternate in the pattern: odd, even, odd, even, etc.
+
+*Examples*:
+```
+>>> odd_even([1, 3, 1])
+False
+>>> odd_even((1, 2, 3))
+True
+>>> odd_even([])
+True
+```
+
+<div id="p03-sortableTrash" class="sortable-code"></div> 
+<div id="p03-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="p03-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p03-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p03-feedback"/></fieldset> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "## Function header\n" +
+    "def odd_even(nums):\n" +
+    "    ## Initially expecting odd\n" +
+    "    expecting_odd = True\n" +
+    "    ## For each number in nums...\n" +
+    "    for num in nums:\n" +
+    "        ## ...if it is not as expected, fail\n" +
+    "        if expecting_odd != (num % 2 == 1):\n" +
+    "            return False\n" +
+    "        ## Update expectation\n" +
+    "        expecting_odd = not expecting_odd\n" +
+    "    ## Succeed if all numbers are as expected\n" +
+    "    return True\n" +
+    "if expecting_odd and (num % 2 == 0): #distractor\n" +
+    "if not expecting_odd and (num % 2 == 1): #distractor\n" +
+    "return False #distractor\n" +
+    "return True #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "p03-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.UnitTestGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "trashId": "p03-sortableTrash",
+    "unittests": "import unittestparson\nclass myTests(unittestparson.unittest):\n  def test_0(self):\n    self.assertEqual(odd_even([1, 3, 1]),False,'Testing: [1, 3, 1]')\n  def test_1(self):\n    self.assertEqual(odd_even((1, 2, 3)),True,'Testing: (1, 2, 3)')\n  def test_2(self):\n    self.assertEqual(odd_even([]),True,'Testing: []')\n_test_result = myTests().main()"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.options.permutation = function(n) {
+    return commentsFirst(initial.split("\n"));
+  };
+  parsonsPuzzle.shuffleLines();
+  $("#p03-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  });
+  $("#p03-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      giveFeedback(parsonsPuzzle, 'p03-feedback'); 
+  }); 
+})(); 
+</script>
+
+
+<!---
 ## Problem 1: Palindrome Core
 A *palindrome* is a string that is equal to its reverse, such as `malayalam`. The following Python function checks whether string `s` is a palindrome:
 ```
@@ -216,7 +490,6 @@ While this solution is correct, its *asymptotic running time* can be *O*(*n* log
 })(); 
 </script>
 
-<!---
 ## Problem 1: Modify this function
 The following function has one argument: a list `xs`. The function is *supposed* to sum up all the integers in `xs`, but it presently sums up *all* items in `xs`. Re-arrange the blocks below so that the function calculates the sum correctly.
 
