@@ -161,6 +161,7 @@ Re-arrange the blocks below to describe how a faculty member might interact with
 })(); 
 </script>
 
+<!---
 ## Problem 1: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
 
@@ -339,7 +340,6 @@ True
 </script>
 
 
-<!---
 ## Problem 1: Palindrome Core
 A *palindrome* is a string that is equal to its reverse, such as `malayalam`. The following Python function checks whether string `s` is a palindrome:
 ```
