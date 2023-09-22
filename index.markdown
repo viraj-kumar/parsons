@@ -161,8 +161,7 @@ Re-arrange the blocks below to describe how a faculty member might interact with
 })(); 
 </script>
 
-<!---
-## Problem 1: Right-angled triangle
+## Python program: Right-angled triangle
 Re-arrange the blocks below so that the program reads an integer `n` and prints a right-angled triangle of height `n`.
 
 *Example*: If `n = 4`, the program should print:
@@ -172,14 +171,14 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
 ***
 ****
 ```
-<div id="p01-sortableTrash" class="sortable-code"></div> 
-<div id="p01-sortable" class="sortable-code"></div> 
+<div id="p03-sortableTrash" class="sortable-code"></div> 
+<div id="p03-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="p01-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="p01-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="p03-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p03-newInstanceLink" value="Reset Problem" type="button" /> 
 </p>
-<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p01-feedback"/></fieldset>
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p03-feedback"/></fieldset>
 <script type="text/javascript">
 (function(){
   var initial = "n = int(input())\n" +
@@ -189,7 +188,7 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
     "for i in range(1, n): #distractor\n" +
     "	print(&#039;*&#039; * i) #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p01-sortable",
+    "sortableId": "p03-sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
@@ -197,22 +196,22 @@ Re-arrange the blocks below so that the program reads an integer `n` and prints 
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
-    "trashId": "p01-sortableTrash"
+    "trashId": "p03-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#p01-newInstanceLink").click(function(event){ 
+  $("#p03-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#p01-feedbackLink").click(function(event){ 
+  $("#p03-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      giveFeedback(parsonsPuzzle, 'p01-feedback'); 
+      giveFeedback(parsonsPuzzle, 'p03-feedback'); 
   }); 
 })();
 </script>
 
-## Problem 2: Number of times minimum appears
+## Python function: Number of times minimum appears
 Define a function `num_min` with one argument `nums` (a sequence of numbers) which returns the *frequency* of the minimum value in `nums`.
 
 *Examples*:
@@ -224,14 +223,14 @@ Define a function `num_min` with one argument `nums` (a sequence of numbers) whi
 >>> num_min([])
 0
 ```
-<div id="p02-sortableTrash" class="sortable-code"></div> 
-<div id="p02-sortable" class="sortable-code"></div> 
+<div id="p04-sortableTrash" class="sortable-code"></div> 
+<div id="p04-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="p02-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="p02-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="p04-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="p04-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
-<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p02-feedback"/></fieldset> 
+<fieldset class="feedbackFieldset"><legend>Feedback:</legend><div id="p04-feedback"/></fieldset> 
 <script type="text/javascript"> 
 (function(){
   var initial = "def num_min(nums):\n" +
@@ -248,7 +247,7 @@ Define a function `num_min` with one argument `nums` (a sequence of numbers) whi
     "if num &lt; min_so_far: #distractor\n" +
     "else: #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p02-sortable",
+    "sortableId": "p04-sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
@@ -256,21 +255,22 @@ Define a function `num_min` with one argument `nums` (a sequence of numbers) whi
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
-    "trashId": "p02-sortableTrash"
+    "trashId": "p04-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#p02-newInstanceLink").click(function(event){ 
+  $("#p04-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#p02-feedbackLink").click(function(event){ 
+  $("#p04-feedbackLink").click(function(event){ 
       event.preventDefault(); 
-      giveFeedback(parsonsPuzzle, "p02-feedback"); 
+      giveFeedback(parsonsPuzzle, "p04-feedback"); 
   }); 
 })(); 
 </script>
 
+<!---
 ## Problem 3: Alternating odd-even numbers
 Define a function `odd_even` that returns `True` if the integers in the sequence `nums` alternate in the pattern: odd, even, odd, even, etc.
 
